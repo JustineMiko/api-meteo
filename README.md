@@ -1,3 +1,7 @@
+Création d'une application météo
+
+Application en react js pour affichage de la météo du jour et des 4 jours suivants
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
