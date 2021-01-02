@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import otherdaysWeather from './otherdaysWeather.js';
+import todayWeather from './todayWeather.js';
+import React, {Component} from 'react';
+import React from 'react-dom';
+import axios from 'axios';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+
+
+class App extends Component {
+
+  userAction = (latitude, longitude) => {
+    alert('Enter a City...');
+  }
+
+  render() {
+
+    return (
+      <div>
+        <p className="todayWeather">
+          <todayWeather />
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+        <p className="otherdaysWeather">
+            <otherdaysWeather />
+        </p>
+      </div>
+      );
+
+  };
+
+ReactDOM.render(
+  <todayWeather />,
+  <otherdaysWeather />,
+  document.getElementById('root')
+);
+
 
 export default App;
+
