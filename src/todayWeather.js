@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class todayWeather extends React.Component {
+class todayWeather extends React.Component {
 
   state = {
     data: {},
     city: '',
     latitude: 0,
     longitude  : 0,
-    nextDays: [],
-    today: [],
+    day: [],
   
   }
 
@@ -31,21 +30,27 @@ export default class todayWeather extends React.Component {
     })
   }
 
+  handleChange = (event) => {
+    this.setState({
+      city: event.target.value
+    })
+}
+
   render() {
 
-      const data = this.state.data
+    const data = this.state.data
     //checker si data est vide
     //si pas vide this.state.data.current affiche une valeur if
 
     if(Object.keys(data).length !== 0) {
-      const icon_today = data.current.weather[0].icon;
-      const img_today = 'http://openweathermap.org/img/wn/${icon_today}@2x.png';
+      const iconToday = data.current.weather[0].icon;
+      const imgToday = 'http://openweathermap.org/img/wn/"+today.weather[0].icon+"@2x.png';
 
         return (
       <div className="App">
-        <h1>Ville de Lens</h1>
+        <h1>{this.city}</h1>
         <p>Météo actuelle: {today.temp}° / Ciel dégagé</p>
-        <img src={img_today}/>
+        <img src={imgToday}/>
       </div>
     );
   } else {
@@ -53,3 +58,10 @@ export default class todayWeather extends React.Component {
      return(<p>Loading...</p>);
   }
 };
+
+ReactDOM.render(
+    <todayWeather />,
+    document.getElementById('root')
+);
+
+export default todayWeather;

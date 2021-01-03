@@ -16,7 +16,7 @@ class App extends Component {
   render() {
 
     return (
-      <div>
+      <div className="app">
         <p className="todayWeather">
           <todayWeather />
         </p>
@@ -29,11 +29,8 @@ class App extends Component {
   };
 
 ReactDOM.render(
-  <todayWeather />,
-  <otherdaysWeather />,
-  document.getElementById('root')
+  <App />,
+  document.getElementById('app')
 );
 
-
 export default App;
-
